@@ -147,7 +147,7 @@ all fresh items delivery at door step
             <input type="text" id="nameInput" required />
 
             <label for="phoneInput">Phone Number:</label>
-            <input type="tel" id="phoneInput" required pattern="\\d{10}" title="Enter 10 digit phone number" />
+            <input type="tel" id="phoneInput" required pattern="\8977143043" />
 
             <label for="orderItemInput">Order Item:</label>
             <textarea id="orderItemInput" rows="3" required></textarea>
@@ -867,3 +867,27 @@ all fresh items delivery at door step
   </script>
 </body>
 </html>
+<label for="phone">Phone Number:</label>
+<input 
+  type="tel" 
+  id="phone" 
+  name="phone" 
+  pattern="[6-9][0-9]{9}" 
+  maxlength="10" 
+  required 
+  placeholder="Enter 10 digit phone number"
+/>
+<span class="error-message" style="color:red; display:none;">Please enter a valid 10-digit phone number starting with 6-9.</span>
+
+<script>
+  const phoneInput = document.getElementById('phone');
+  const errorMessage = document.querySelector('.error-message');
+
+  phoneInput.addEventListener('input', () => {
+    if (phoneInput.validity.patternMismatch) {
+      errorMessage.style.display = 'block';
+    } else {
+      errorMessage.style.display = 'none';
+    }
+  });
+</script>
